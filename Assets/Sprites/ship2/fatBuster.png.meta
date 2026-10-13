@@ -1,0 +1,769 @@
+fileFormatVersion: 2
+guid: e9b5f3e5e8e06e84eb40fd5882f0afe8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1208028040682985367
+    second: fatBuster_0
+  - first:
+      213: 7174592159947772636
+    second: fatBuster_1
+  - first:
+      213: -3574367851935974832
+    second: fatBuster_2
+  - first:
+      213: 3305492365813929540
+    second: fatBuster_3
+  - first:
+      213: -1730283104476946958
+    second: fatBuster_4
+  - first:
+      213: -6389001923353022282
+    second: fatBuster_5
+  - first:
+      213: -4542532899038117773
+    second: fatBuster_6
+  - first:
+      213: -5299686068670501835
+    second: fatBuster_7
+  - first:
+      213: 4151975401101784910
+    second: fatBuster_8
+  - first:
+      213: 3242819742721893498
+    second: fatBuster_9
+  - first:
+      213: 7176263076721623771
+    second: fatBuster_10
+  - first:
+      213: -1917636507512547466
+    second: fatBuster_11
+  - first:
+      213: -6588291866541937288
+    second: fatBuster_12
+  - first:
+      213: 7296051629126162012
+    second: fatBuster_13
+  - first:
+      213: 8280082951628746838
+    second: fatBuster_14
+  - first:
+      213: -6868428549891892239
+    second: fatBuster_15
+  - first:
+      213: -1530359415478876573
+    second: fatBuster_16
+  - first:
+      213: -3181695120385795430
+    second: fatBuster_17
+  - first:
+      213: 6844924747753613498
+    second: fatBuster_18
+  - first:
+      213: -908415546517176145
+    second: fatBuster_19
+  - first:
+      213: 2835628051263486939
+    second: fatBuster_20
+  - first:
+      213: -5718183225252803810
+    second: fatBuster_21
+  - first:
+      213: -8651712143114659253
+    second: fatBuster_22
+  - first:
+      213: 4881835463101948048
+    second: fatBuster_23
+  - first:
+      213: 4027271972697470990
+    second: fatBuster_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fatBuster_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 10
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 797de934a17c3c010800000000000000
+      internalID: 1208028040682985367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd25dfd8e85419360800000000000000
+      internalID: 7174592159947772636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 20
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05ab7c0606b456ec0800000000000000
+      internalID: -3574367851935974832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 446da102bc77fdd20800000000000000
+      internalID: 3305492365813929540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_4
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 14
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fd9ac41facccf7e0800000000000000
+      internalID: -1730283104476946958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_5
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 19
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b07141e994b557a0800000000000000
+      internalID: -6389001923353022282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_6
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 14
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370ce4c456ea5f0c0800000000000000
+      internalID: -4542532899038117773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_7
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 18
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ceec7799bb376b0800000000000000
+      internalID: -5299686068670501835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_8
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 21
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e47f4d211a7ce9930800000000000000
+      internalID: 4151975401101784910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_9
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 18
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a74ef83ff5fc00d20800000000000000
+      internalID: 3242819742721893498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_10
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 13
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd28ebe2f35379360800000000000000
+      internalID: 7176263076721623771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_11
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 8
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 677d469a1cf2365e0800000000000000
+      internalID: -1917636507512547466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_12
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 8
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87d2c22247fa194a0800000000000000
+      internalID: -6588291866541937288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_13
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 13
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5699f0fc48c04560800000000000000
+      internalID: 7296051629126162012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 13
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65079922393c8e270800000000000000
+      internalID: 8280082951628746838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_15
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 6
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fbda86df907ea0a0800000000000000
+      internalID: -6868428549891892239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_16
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 7
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36605b5483213cae0800000000000000
+      internalID: -1530359415478876573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_17
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 13
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9a9fc5352958d3d0800000000000000
+      internalID: -3181695120385795430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_18
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 13
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab86228cace0efe50800000000000000
+      internalID: 6844924747753613498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_19
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 5
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa0c6699fd8a463f0800000000000000
+      internalID: -908415546517176145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_20
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 6
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb71b650bc2a5720800000000000000
+      internalID: 2835628051263486939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_21
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 13
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b853227aee4a0b0800000000000000
+      internalID: -5718183225252803810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_22
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a97b205a1fee780800000000000000
+      internalID: -8651712143114659253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_23
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 3
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 090a8161d73cfb340800000000000000
+      internalID: 4881835463101948048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fatBuster_24
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 1
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08f482958eb3e730800000000000000
+      internalID: 4027271972697470990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fatBuster_0: 1208028040682985367
+      fatBuster_1: 7174592159947772636
+      fatBuster_10: 7176263076721623771
+      fatBuster_11: -1917636507512547466
+      fatBuster_12: -6588291866541937288
+      fatBuster_13: 7296051629126162012
+      fatBuster_14: 8280082951628746838
+      fatBuster_15: -6868428549891892239
+      fatBuster_16: -1530359415478876573
+      fatBuster_17: -3181695120385795430
+      fatBuster_18: 6844924747753613498
+      fatBuster_19: -908415546517176145
+      fatBuster_2: -3574367851935974832
+      fatBuster_20: 2835628051263486939
+      fatBuster_21: -5718183225252803810
+      fatBuster_22: -8651712143114659253
+      fatBuster_23: 4881835463101948048
+      fatBuster_24: 4027271972697470990
+      fatBuster_3: 3305492365813929540
+      fatBuster_4: -1730283104476946958
+      fatBuster_5: -6389001923353022282
+      fatBuster_6: -4542532899038117773
+      fatBuster_7: -5299686068670501835
+      fatBuster_8: 4151975401101784910
+      fatBuster_9: 3242819742721893498
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: b691f2a662254dd46bb59b8a1bfe8edb
+guid: 1fc8a91fac80ed44cbbac75b2d49ba11
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7214507878358585748
-    second: Obliterator_0
+      213: -640419286874751457
+    second: fattyDeposits_0
   - first:
-      213: 226508831269846118
-    second: Obliterator_1
+      213: 6004785218741859861
+    second: fattyDeposits_1
   - first:
-      213: -2449630829526666554
-    second: Obliterator_2
+      213: 1439575107117461951
+    second: fattyDeposits_2
   - first:
-      213: 8328569778482948572
-    second: Obliterator_3
+      213: 467510383057027178
+    second: fattyDeposits_3
   - first:
-      213: -7619529269965467382
-    second: Obliterator_4
+      213: 6826719626627362133
+    second: fattyDeposits_4
   - first:
-      213: -2352194975474761598
-    second: Obliterator_5
-  - first:
-      213: 2322664599491421646
-    second: Obliterator_6
-  - first:
-      213: 3786963017068066296
-    second: Obliterator_7
-  - first:
-      213: -3502515831108924710
-    second: Obliterator_8
+      213: -2617737818064535013
+    second: fattyDeposits_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Obliterator_0
+      name: fattyDeposits_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 275
-        width: 95
-        height: 89
+        x: 6
+        y: 46
+        width: 35
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6eed290f4be0eb90800000000000000
-      internalID: -7214507878358585748
+      spriteID: f1e758a3d06cc17f0800000000000000
+      internalID: -640419286874751457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Obliterator_1
+      name: fattyDeposits_1
       rect:
         serializedVersion: 2
-        x: 103
-        y: 275
-        width: 109
-        height: 71
+        x: 47
+        y: 46
+        width: 50
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66cf35af498b42300800000000000000
-      internalID: 226508831269846118
+      spriteID: 516ff9b7758455350800000000000000
+      internalID: 6004785218741859861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Obliterator_2
+      name: fattyDeposits_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 162
-        width: 80
-        height: 111
+        x: 96
+        y: 46
+        width: 54
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c2b73f3db9210ed0800000000000000
-      internalID: -2449630829526666554
+      spriteID: fb13b37cee56af310800000000000000
+      internalID: 1439575107117461951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Obliterator_3
+      name: fattyDeposits_3
       rect:
         serializedVersion: 2
-        x: 83
-        y: 247
-        width: 130
-        height: 26
+        x: 13
+        y: 11
+        width: 12
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,20 +198,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd9a78d3616059370800000000000000
-      internalID: 8328569778482948572
+      spriteID: a60cbe6673eec7600800000000000000
+      internalID: 467510383057027178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Obliterator_4
+      name: fattyDeposits_4
       rect:
         serializedVersion: 2
-        x: 86
-        y: 162
-        width: 89
-        height: 80
+        x: 62
+        y: 13
+        width: 13
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +220,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a01540cbf7ef14690800000000000000
-      internalID: -7619529269965467382
+      spriteID: 55daf46b4516dbe50800000000000000
+      internalID: 6826719626627362133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Obliterator_5
+      name: fattyDeposits_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 113
-        width: 135
-        height: 48
+        x: 110
+        y: 13
+        width: 11
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,74 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2804e5cd1235b5fd0800000000000000
-      internalID: -2352194975474761598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Obliterator_6
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 16
-        width: 75
-        height: 98
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ec5af01b523cb3020800000000000000
-      internalID: 2322664599491421646
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Obliterator_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8f532e1cccefd8430800000000000000
-      internalID: 3786963017068066296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Obliterator_8
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 16
-        width: 73
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ada0292a860946fc0800000000000000
-      internalID: -3502515831108924710
+      spriteID: b124827e25debabd0800000000000000
+      internalID: -2617737818064535013
       vertices: []
       indices: 
       edges: []
@@ -337,15 +262,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Obliterator_0: -7214507878358585748
-      Obliterator_1: 226508831269846118
-      Obliterator_2: -2449630829526666554
-      Obliterator_3: 8328569778482948572
-      Obliterator_4: -7619529269965467382
-      Obliterator_5: -2352194975474761598
-      Obliterator_6: 2322664599491421646
-      Obliterator_7: 3786963017068066296
-      Obliterator_8: -3502515831108924710
+      fattyDeposits_0: -640419286874751457
+      fattyDeposits_1: 6004785218741859861
+      fattyDeposits_2: 1439575107117461951
+      fattyDeposits_3: 467510383057027178
+      fattyDeposits_4: 6826719626627362133
+      fattyDeposits_5: -2617737818064535013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
