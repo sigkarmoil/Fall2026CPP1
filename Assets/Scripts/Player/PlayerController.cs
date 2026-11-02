@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent (typeof(Animator))]
+[RequireComponent (typeof(Animator), (typeof(GroundCheck)))]
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,23 +18,27 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
     private BoxCollider2D bc;
     private Animator anim;
+    private GroundCheck gndChk;
+
+    [SerializeField] private Collider2D attackCollider;
+
     public float attackForceMultiplier = 0.5f;
 
-    private Vector2 CalculateGroundCheckPos()
-    {
-        Bounds bounds = bc.bounds; // what is bounds in Unity?
-        return new Vector2(bounds.center.x, bounds.min.y);
-    }
+    //private Vector2 CalculateGroundCheckPos()
+    //{
+    //    Bounds bounds = bc.bounds; // what is bounds in Unity?
+    //    return new Vector2(bounds.center.x, bounds.min.y);
+    //}
 
 
     #endregion
 
     #region Ground Check Parameters
 
-    public Transform groundCheck;
-    public LayerMask groundLayer;
-    public float groundCheckRadius = 0.2f;
-    public bool isGrounded;
+    //public Transform groundCheck;
+    //public LayerMask groundLayer;
+    //public float groundCheckRadius = 0.2f;
+    //public bool isGrounded;
 
 
     #endregion
@@ -50,32 +54,28 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+
+        gndChk = GetComponent<GroundCheck>();
+        gndChk.Init(bc, rb);
+
+
+        rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
     }
 
     // Update is called once per frame
     void Update()
     {
         #region Groundcheck
-        //if (rb.linearVelocityY == 0f )
-        //{
-        //    isGrounded = true;
-        //}
-        //else
-        //{
-        //    isGrounded = false;
-        //}
 
-        if (rb.linearVelocityY <= 0f)
-        {
-            isGrounded = Physics2D.OverlapCircle(CalculateGroundCheckPos(), groundCheckRadius, groundLayer);
-        }
+        gndChk.checkGround();
+
         #endregion
 
-        //float yInput = Input.GetAxisRaw("Vertical");
         bool upPressed = Input.GetAxisRaw("Vertical") > 0f;
         float moveX = Input.GetAxisRaw("Horizontal");
         bool jumpPressed = Input.GetButtonDown("Jump");
         bool attackPressed = Input.GetButtonDown("Fire1");
+        bool shootPressed = Input.GetButtonDown("Fire2");
 
 
         #region movement
@@ -91,8 +91,12 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region jump
-        if (jumpPressed && isGrounded)
+
+
+        if (jumpPressed && gndChk.isGrounded)
         {
+            gndChk.setGroundAfterJump();
+            rb.linearVelocityY = 0f;
             rb.AddForce(Vector2.up * jumpForce , ForceMode2D.Impulse);
         }
 
@@ -114,10 +118,16 @@ public class PlayerController : MonoBehaviour
 
         #region Animator Variable
         //Connect Animator with 
-        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isGrounded", gndChk.isGrounded);
         anim.SetFloat("moveX", Mathf.Abs(moveX));
         anim.SetBool("isAttack", isAttack);
         #endregion
+
+
+        if (shootPressed)
+        {
+            anim.SetTrigger("shoot");
+        }
     }
     void SpriteFlip(float moveX) => sr.flipX = (moveX < 0f);
     #region Attack Animation
@@ -125,24 +135,30 @@ public class PlayerController : MonoBehaviour
     public void isAttackOn()
     {
         isAttack = true;
+        attackCollider.enabled = true;
     }
 
     public void isAttackOff(){
         isAttack = false;
+        attackCollider.enabled = false;
     }
 
     #endregion
 
     void gravityOff()
     {
+
+        //rb.bodyType = RigidbodyType2D.Kinematic;
         rb.linearVelocity = Vector2.zero;
-        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.gravityScale = -0.2f;
 
     }
 
     void gravityOn()
     {
-        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = 0.3f;
+        //rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
     public void twirlForce()
@@ -151,12 +167,3 @@ public class PlayerController : MonoBehaviour
     }
 
 }
-
-    //{
-    //    if (sr.flipX && moveX > 0f || !sr.flipX && moveX < 0f)
-    //    {
-    //        sr.flipX = !sr.flipX;
-    //    }
-
-    //}
-
