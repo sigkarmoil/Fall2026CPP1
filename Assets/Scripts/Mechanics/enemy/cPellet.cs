@@ -40,7 +40,7 @@ public class cPellet : MonoBehaviour
     //Put item back into pool when pellets touch collider.
     //OnTriggerEnter2D causes trigger when it touches layer
 
-    //TO FIX
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -48,6 +48,7 @@ public class cPellet : MonoBehaviour
     if ((launchLayers.value & layerBit) != 0)
         {
             pelletLaunchUpward();
+            Release();
         }
         else
         {
