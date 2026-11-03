@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
 
         //rb.bodyType = RigidbodyType2D.Kinematic;
         rb.linearVelocity = Vector2.zero;
-        rb.gravityScale = -0.2f;
+        rb.gravityScale = 0.0f;
 
     }
 

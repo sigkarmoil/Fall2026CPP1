@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
-            Debug.Log("Projectile hit the ground");
+            Destroy(gameObject);
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
