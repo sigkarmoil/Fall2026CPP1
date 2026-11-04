@@ -5829,7 +5829,7 @@ TextureImporter:
       name: touhouSprite2_120
       rect:
         serializedVersion: 2
-        x: 326
+        x: 327
         y: 5277
         width: 78
         height: 60
@@ -6116,7 +6116,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 9
-        y: 5147
+        y: 5148
         width: 57
         height: 99
       alignment: 0
@@ -6178,7 +6178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: touhouSprite2_136
+      name: touhou_roll1
       rect:
         serializedVersion: 2
         x: 216
@@ -6200,7 +6200,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: touhouSprite2_137
+      name: touhou_roll2
       rect:
         serializedVersion: 2
         x: 288
@@ -6222,10 +6222,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: touhouSprite2_138
+      name: touhou_roll3
       rect:
         serializedVersion: 2
-        x: 363
+        x: 365
         y: 5147
         width: 56
         height: 76
@@ -6244,7 +6244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: touhouSprite2_139
+      name: touhou_roll4
       rect:
         serializedVersion: 2
         x: 423
@@ -6266,11 +6266,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: touhouSprite2_140
+      name: touhou_roll5
       rect:
         serializedVersion: 2
         x: 507
-        y: 5147
+        y: 5148
         width: 88
         height: 75
       alignment: 0
@@ -6288,7 +6288,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: touhouSprite2_141
+      name: touhou_roll6
       rect:
         serializedVersion: 2
         x: 599
@@ -25919,13 +25919,7 @@ TextureImporter:
       touhouSprite2_133: -2423256809584191847
       touhouSprite2_134: 979445284739033417
       touhouSprite2_135: -9081861618178206459
-      touhouSprite2_136: 5246584358463267079
-      touhouSprite2_137: 2319410878818328819
-      touhouSprite2_138: -4406119309876068845
-      touhouSprite2_139: -5786130584963041126
       touhouSprite2_14: -7778624030966120924
-      touhouSprite2_140: -2005244913391495888
-      touhouSprite2_141: -434786582452383278
       touhouSprite2_142: 1578463584095798207
       touhouSprite2_143: 413402124480412936
       touhouSprite2_144: -1141791519693340864
@@ -26866,6 +26860,12 @@ TextureImporter:
       touhouSprite2_996: -1984499644701525764
       touhouSprite2_997: -8342188583356901450
       touhouSprite2_999: -2310517451537800167
+      touhou_roll1: 5246584358463267079
+      touhou_roll2: 2319410878818328819
+      touhou_roll3: -4406119309876068845
+      touhou_roll4: -5786130584963041126
+      touhou_roll5: -2005244913391495888
+      touhou_roll6: -434786582452383278
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
