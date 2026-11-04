@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     #region Boost
     [SerializeField] private float boostHeight = 4f;
     [SerializeField] private float boostTime = 0.3f;
+    [SerializeField] private LayerMask groundLayer;
 
     private float boostVelocity;
     private float boostTargetY;
@@ -163,6 +164,26 @@ public class PlayerController : MonoBehaviour
         if (!isBoosting) return;
 
         boostUp();
+    }
+    #endregion
+
+    #region Boost Ceiling Stop
+    void OnCollisionEnter2D(Collision2D col) => CheckBoostCeiling(col);
+    void OnCollisionStay2D(Collision2D col) => CheckBoostCeiling(col);
+
+    void CheckBoostCeiling(Collision2D col)
+    {
+        if (!isBoosting) return;
+        if ((groundLayer.value & (1 << col.gameObject.layer)) == 0) return;
+
+        for (int i = 0; i < col.contactCount; i++)
+        {
+            if (col.GetContact(i).normal.y < -0.5f)
+            {
+                boostTargetY = rb.position.y; // target = where we are now
+                return;
+            }
+        }
     }
     #endregion
 

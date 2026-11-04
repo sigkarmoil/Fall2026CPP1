@@ -57513,6 +57513,9 @@ MonoBehaviour:
   attackForceMultiplier: 0.5
   boostHeight: 1
   boostTime: 0.8
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   hitStopTime: 0.15
   isAttack: 0
 --- !u!95 &1804987626
