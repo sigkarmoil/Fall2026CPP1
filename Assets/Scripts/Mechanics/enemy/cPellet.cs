@@ -43,7 +43,11 @@ public class cPellet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other == attackBox && player != null)
-            player.hitPellet();
+        {
+            player.startBoost();
+            player.isAttack= true;
+
+        }
 
         Release();
     }

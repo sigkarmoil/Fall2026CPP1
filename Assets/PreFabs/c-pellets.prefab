@@ -111,7 +111,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -170,10 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b61b70f5c52f27439e0e1c2035cd251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::cPellet
-  player: {fileID: 0}
   pelletForce: 0.3
   speed: 1
   lifetime: 5
-  launchLayers:
-    serializedVersion: 2
-    m_Bits: 1024

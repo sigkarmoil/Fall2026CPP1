@@ -37,6 +37,16 @@ public class PlayerController : MonoBehaviour
 
 
     #endregion
+
+    #region Boost
+    [SerializeField] private float boostHeight = 4f;
+    [SerializeField] private float boostTime = 0.3f;
+
+    private float boostVelocity;
+    private float boostTargetY;
+    private bool isBoosting;
+    #endregion
+
     #region freezeTime
     private bool isFrozen;
     public float hitStopTime = 0.2f;
@@ -107,7 +117,6 @@ public class PlayerController : MonoBehaviour
 
         #region jump
 
-
         if (jumpPressed && gndChk.isGrounded)
         {
             gndChk.setGroundAfterJump();
@@ -145,6 +154,16 @@ public class PlayerController : MonoBehaviour
         }
     }
     void SpriteFlip(float moveX) => sr.flipX = (moveX < 0f);
+
+    #region Fixed Updates
+    void FixedUpdate()
+    {
+        if (!isBoosting) return;
+
+        boostUp();
+    }
+    #endregion
+
     #region Attack Animation
 
     public void isAttackOn()
@@ -212,5 +231,41 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = previousScale;
         isFrozen = false;
     }
+    #region Boosting Up Attacks
+    
+    //Use StartBoost to call the boost function. This also replace the gravity off.
+    //The intention is to separate between signal and calculation, to prevent stacking calculation flying to the roof
+    public void startBoost()
+    {
+        // Restart: kill any existing motion
+        rb.linearVelocity = Vector2.zero;
+
+        // Lock the target only on a fresh boost, so repeat calls can't stack 4 into 8
+        if (!isBoosting)
+        {
+            boostTargetY = rb.position.y + boostHeight;
+            isBoosting = true;
+        }
+    }
+
+    //Triggered when Boost is true
+    void boostUp()
+    {
+        boostVelocity = boostHeight / boostTime;   // speed = distance / time
+
+        float dt = Time.fixedDeltaTime;
+        float newY = Mathf.MoveTowards(rb.position.y, boostTargetY, boostVelocity * dt);
+
+        // Convert the step into velocity so horizontal movement in Update() is untouched
+        rb.linearVelocityY = (newY - rb.position.y) / dt;
+
+        if (Mathf.Approximately(newY, boostTargetY))
+        {
+            rb.linearVelocityY = 0f;
+            isBoosting = false;
+        }
+    }
+
+    #endregion
 
 }
