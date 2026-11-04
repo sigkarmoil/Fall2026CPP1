@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Collider2D attackCollider;
 
+    [SerializeField, Range(0.01f, 1f)] private float boostEndSpeedFactor = 0.1f; // speed at the very end, as a fraction of peak speed
+
     public float attackForceMultiplier = 0.5f;
 
     //public float freezeTimer = 0.2f;
@@ -144,7 +146,7 @@ public class PlayerController : MonoBehaviour
         //Connect Animator with 
         anim.SetBool("isGrounded", gndChk.isGrounded);
         anim.SetFloat("moveX", Mathf.Abs(moveX));
-        anim.SetBool("isAttack", isAttack);
+        //anim.SetBool("isAttack", isAttack);
         #endregion
 
 
@@ -199,12 +201,9 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(Vector2.up * jumpForce * attackForceMultiplier, ForceMode2D.Impulse);
     }
-    public void hitPellet()
+    public void freezeTimePellet()
     {
-        isAttack = true;
-        rb.AddForce(Vector2.up * jumpForce * attackForceMultiplier, ForceMode2D.Impulse);
         FreezeTime(hitStopTime);
-        Debug.Log("hitPellet called");
     }
 
     //public void hitStop()
@@ -245,18 +244,26 @@ public class PlayerController : MonoBehaviour
         {
             boostTargetY = rb.position.y + boostHeight;
             isBoosting = true;
+            anim.SetTrigger("sommersault");
         }
     }
 
     //Triggered when Boost is true
     void boostUp()
     {
-        boostVelocity = boostHeight / boostTime;   // speed = distance / time
+        // Peak speed. At 2x the average, a linear taper to zero still covers
+        // boostHeight in about boostTime.
+        boostVelocity = 2f * boostHeight / boostTime;
+
+        // 1 at the start of the boost, 0 at the target
+        float remaining = Mathf.Clamp01((boostTargetY - rb.position.y) / boostHeight);
+
+        // Linear taper from full speed down to the end factor
+        float speedScale = Mathf.Lerp(boostEndSpeedFactor, 1f, remaining);
 
         float dt = Time.fixedDeltaTime;
-        float newY = Mathf.MoveTowards(rb.position.y, boostTargetY, boostVelocity * dt);
+        float newY = Mathf.MoveTowards(rb.position.y, boostTargetY, boostVelocity * speedScale * dt);
 
-        // Convert the step into velocity so horizontal movement in Update() is untouched
         rb.linearVelocityY = (newY - rb.position.y) / dt;
 
         if (Mathf.Approximately(newY, boostTargetY))
@@ -264,6 +271,7 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocityY = 0f;
             isBoosting = false;
         }
+
     }
 
     #endregion

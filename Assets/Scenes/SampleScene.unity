@@ -57509,10 +57509,11 @@ MonoBehaviour:
   jumpForce: 1.25
   rb: {fileID: 1804987623}
   attackCollider: {fileID: 624970851}
+  boostEndSpeedFactor: 0.5
   attackForceMultiplier: 0.5
   boostHeight: 1
-  boostTime: 0.3
-  hitStopTime: 0.1
+  boostTime: 0.8
+  hitStopTime: 0.15
   isAttack: 0
 --- !u!95 &1804987626
 Animator:
@@ -58386,11 +58387,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1010003
+      value: -2.018
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.813
+      value: 0.767
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58398,7 +58399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -58410,7 +58411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -58422,7 +58423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -180
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 7013713842759352278, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: attackBox

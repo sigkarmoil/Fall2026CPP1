@@ -44,10 +44,18 @@ public class cPellet : MonoBehaviour
     {
         if (other == attackBox && player != null)
         {
+            player.freezeTimePellet();
             player.startBoost();
             player.isAttack= true;
+            Debug.Log("startBoost is happening");
+            player.isAttackOff();
 
         }
+        else if (other.gameObject.layer == 3)   // ADD: Layer 3 = player
+        {
+            Debug.Log("player Hit");
+        }
+
 
         Release();
     }
