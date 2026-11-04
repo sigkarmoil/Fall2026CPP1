@@ -4,7 +4,7 @@ public class crystalAbsorb : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private SpriteRenderer sr;
-    private CapsuleCollider2D capsule2d;
+    public CapsuleCollider2D capsule2d;
 
     //private float srTranparency = 1.00f;
 

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+
     #region Tunable Parameters
     public float movesSpeed = 5f; // public allows it to be edited on UI
 
@@ -24,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     public float attackForceMultiplier = 0.5f;
 
+    //public float freezeTimer = 0.2f;
+
     //private Vector2 CalculateGroundCheckPos()
     //{
     //    Bounds bounds = bc.bounds; // what is bounds in Unity?
@@ -32,7 +37,10 @@ public class PlayerController : MonoBehaviour
 
 
     #endregion
-
+    #region freezeTime
+    private bool isFrozen;
+    public float hitStopTime = 0.2f;
+    #endregion
     #region Ground Check Parameters
 
     //public Transform groundCheck;
@@ -69,6 +77,12 @@ public class PlayerController : MonoBehaviour
 
         gndChk.checkGround();
 
+        #region Regular Attack Reset
+        if (gndChk.checkGround() == true)
+        {
+            isAttack = true;
+        }
+        #endregion
         #endregion
 
         bool upPressed = Input.GetAxisRaw("Vertical") > 0f;
@@ -83,10 +97,11 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region attack
-        if (attackPressed && !upPressed)
+        if (attackPressed && !upPressed && isAttack)
         {
+            isAttack = false;
             anim.SetTrigger("regularAttack");
-            rb.AddForce(Vector2.up * jumpForce * attackForceMultiplier, ForceMode2D.Impulse);
+            //rb.AddForce(Vector2.up * jumpForce * attackForceMultiplier, ForceMode2D.Impulse);
         }
         #endregion
 
@@ -134,12 +149,12 @@ public class PlayerController : MonoBehaviour
 
     public void isAttackOn()
     {
-        isAttack = true;
+        //isAttack = true;
         attackCollider.enabled = true;
     }
 
     public void isAttackOff(){
-        isAttack = false;
+        //isAttack = false;
         attackCollider.enabled = false;
     }
 
@@ -161,9 +176,41 @@ public class PlayerController : MonoBehaviour
         //rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    public void twirlForce()
+    public async Task twirlForce()
     {
         rb.AddForce(Vector2.up * jumpForce * attackForceMultiplier, ForceMode2D.Impulse);
+    }
+    public void hitPellet()
+    {
+        isAttack = true;
+        rb.AddForce(Vector2.up * jumpForce * attackForceMultiplier, ForceMode2D.Impulse);
+        FreezeTime(hitStopTime);
+        Debug.Log("hitPellet called");
+    }
+
+    //public void hitStop()
+    //{
+    //    //sr.color = Color.white;
+    //    FreezeTime(hitStopTime);
+    //    //sr.color = Color;
+
+    //}
+    public void FreezeTime(float duration)
+    {
+        if (!isFrozen)
+            StartCoroutine(FreezeRoutine(duration));
+    }
+
+    private System.Collections.IEnumerator FreezeRoutine(float duration)
+    {
+        isFrozen = true;
+        float previousScale = Time.timeScale;
+
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(duration);
+
+        Time.timeScale = previousScale;
+        isFrozen = false;
     }
 
 }

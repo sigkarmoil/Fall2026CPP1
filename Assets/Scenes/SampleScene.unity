@@ -448,8 +448,8 @@ Transform:
   m_GameObject: {fileID: 85945749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.238, y: 6.712, z: 0}
-  m_LocalScale: {x: 2.1435697, y: 2.1435697, z: 2.1435697}
+  m_LocalPosition: {x: -6.2319, y: 6.7212, z: 0}
+  m_LocalScale: {x: 2.056112, y: 2.086122, z: 2.1435697}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2020822497}
@@ -505,6 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::crystalAbsorb
   sr: {fileID: 85945751}
+  capsule2d: {fileID: 85945754}
 --- !u!1 &94085634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2921,6 +2922,7 @@ GameObject:
   m_Component:
   - component: {fileID: 624970850}
   - component: {fileID: 624970851}
+  - component: {fileID: 624970852}
   m_Layer: 10
   m_Name: playerAttack
   m_TagString: Untagged
@@ -2989,6 +2991,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &624970852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624970849}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f32f4375e9c0d1428c0cf51d9891b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionDetector2D
+  player: {fileID: 1804987625}
 --- !u!1 &672815572
 GameObject:
   m_ObjectHideFlags: 0
@@ -57358,6 +57373,7 @@ MonoBehaviour:
   rb: {fileID: 1804987623}
   attackCollider: {fileID: 624970851}
   attackForceMultiplier: 1.35
+  hitStopTime: 0.1
   isAttack: 0
 --- !u!95 &1804987626
 Animator:
@@ -58210,11 +58226,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.834
+      value: -1.449
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.813
+      value: 1.186
       objectReference: {fileID: 0}
     - target: {fileID: 5447861731635290364, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58248,6 +58264,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7013713842759352278, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
+      propertyPath: attackBox
+      value: 
+      objectReference: {fileID: 624970851}
     - target: {fileID: 7013713842759352278, guid: 88ac9f77c55f5184fb853264531bc6b6, type: 3}
       propertyPath: spawnDelay
       value: 1

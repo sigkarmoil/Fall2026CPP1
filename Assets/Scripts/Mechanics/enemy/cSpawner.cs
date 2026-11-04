@@ -5,6 +5,7 @@ using UnityEngine.Pool;
 public class cSpawner : MonoBehaviour
 {
     [SerializeField] private cPellet pelletPrefab;
+    [SerializeField] private Collider2D attackBox;
     [Tooltip("c-runtime: empty root at 0,0,0, no rotation. Pellets are parented here, never to c-Stream.")]
     [SerializeField] private Transform runtimeParent;
 
@@ -48,6 +49,7 @@ public class cSpawner : MonoBehaviour
     {
         cPellet pellet = Instantiate(pelletPrefab, runtimeParent);
         pellet.Pool = pool;
+        pellet.SetAttackBox(attackBox);
         pellet.gameObject.SetActive(false);
         return pellet;
     }
