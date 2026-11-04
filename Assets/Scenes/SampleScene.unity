@@ -2922,7 +2922,6 @@ GameObject:
   m_Component:
   - component: {fileID: 624970850}
   - component: {fileID: 624970851}
-  - component: {fileID: 624970852}
   m_Layer: 10
   m_Name: playerAttack
   m_TagString: Untagged
@@ -2939,7 +2938,7 @@ Transform:
   m_GameObject: {fileID: 624970849}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.199999, z: 0}
+  m_LocalPosition: {x: 0.211, y: 0.192, z: 0}
   m_LocalScale: {x: 1.2840322, y: 0.973556, z: 1.4887332}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2952,7 +2951,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624970849}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -2989,21 +2988,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.09, y: 1}
   m_EdgeRadius: 0
---- !u!114 &624970852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624970849}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f32f4375e9c0d1428c0cf51d9891b8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CollisionDetector2D
-  player: {fileID: 1804987625}
 --- !u!1 &672815572
 GameObject:
   m_ObjectHideFlags: 0
@@ -57197,6 +57183,7 @@ GameObject:
   - component: {fileID: 1804987626}
   - component: {fileID: 1804987627}
   - component: {fileID: 1804987628}
+  - component: {fileID: 1804987629}
   m_Layer: 3
   m_Name: player_janitor
   m_TagString: Untagged
@@ -57429,6 +57416,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheckRadius: 0.01
+--- !u!114 &1804987629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804987619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131f36562e710b54fb362f896b71ffbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::flipAttackBox
+  sr: {fileID: 1804987621}
+  attackBox: {fileID: 624970851}
+  xOffset: 0.211
 --- !u!1 &1819758009
 GameObject:
   m_ObjectHideFlags: 0
