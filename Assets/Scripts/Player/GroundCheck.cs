@@ -3,20 +3,29 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
     [SerializeField] private LayerMask groundLayer;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private LayerMask hardLayer;
+    [SerializeField] private LayerMask veinLayer;
     [SerializeField] private float groundCheckRadius = 0.05f;
+
     public bool isGrounded { get; private set; }
 
     private Collider2D col;
     private Rigidbody2D rb;
-    private Vector2 groundcheckPos => CalculateGroundCheckPos();
+    private LayerMask combinedMask;
 
-    // Foot position helper function to calculate the ground check position based on the collider's bounds
+    private Vector2 groundCheckPos => CalculateGroundCheckPos();
+
+    private void Awake()
+    {
+        // OR the three masks into one. LayerMask converts implicitly to int and back.
+        combinedMask = groundLayer | hardLayer | veinLayer;
+    }
+
+    // Foot position: bottom-center of the collider bounds
     private Vector2 CalculateGroundCheckPos()
     {
         Bounds bounds = col.bounds;
         return new Vector2(bounds.center.x, bounds.min.y);
-        //Debug.Log("CalculateGroundCheck is running");
     }
 
     public void Init(Collider2D col, Rigidbody2D rb)
@@ -27,10 +36,11 @@ public class GroundCheck : MonoBehaviour
 
     public bool checkGround()
     {
-        if (!isGrounded && rb.linearVelocityY <= 0 || isGrounded)
+        // Skip re-grounding while rising after a jump
+        if (isGrounded || rb.linearVelocityY <= 0)
         {
-            isGrounded = Physics2D.OverlapCircle(groundcheckPos, groundCheckRadius, groundLayer);
-            //Debug.Log("Player is grounded");
+            // One query, one assignment. Non-null collider means grounded.
+            isGrounded = Physics2D.OverlapCircle(groundCheckPos, groundCheckRadius, combinedMask) != null;
         }
         return isGrounded;
     }

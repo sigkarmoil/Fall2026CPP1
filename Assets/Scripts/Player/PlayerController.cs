@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Collider2D attackCollider;
 
+    [SerializeField, Range(0.01f, 1f)] private float boostEndSpeedFactor = 0.1f; // speed at the very end, as a fraction of peak speed
+
     public float attackForceMultiplier = 0.5f;
 
     //public float freezeTimer = 0.2f;
@@ -37,6 +39,23 @@ public class PlayerController : MonoBehaviour
 
 
     #endregion
+
+    #region Boost
+    [SerializeField] private float boostHeight = 4f;
+    [SerializeField] private float boostTime = 0.3f;
+
+    [SerializeField] private LayerMask groundLayer;
+
+    #region power management
+    public int currentPower = 0;
+    [SerializeField] private int maxPower = 5;
+    #endregion
+
+    private float boostVelocity;
+    private float boostTargetY;
+    private bool isBoosting;
+    #endregion
+
     #region freezeTime
     private bool isFrozen;
     public float hitStopTime = 0.2f;
@@ -107,7 +126,6 @@ public class PlayerController : MonoBehaviour
 
         #region jump
 
-
         if (jumpPressed && gndChk.isGrounded)
         {
             gndChk.setGroundAfterJump();
@@ -118,10 +136,11 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region twirlingAttack
-        if (upPressed && attackPressed)
+        if (upPressed && attackPressed && currentPower >=1)
         {
             anim.SetTrigger("twirlingAttack");
-        }   
+            currentPower -= 1;
+        }
         #endregion
 
         #region flip
@@ -135,7 +154,7 @@ public class PlayerController : MonoBehaviour
         //Connect Animator with 
         anim.SetBool("isGrounded", gndChk.isGrounded);
         anim.SetFloat("moveX", Mathf.Abs(moveX));
-        anim.SetBool("isAttack", isAttack);
+        //anim.SetBool("isAttack", isAttack);
         #endregion
 
 
@@ -145,6 +164,36 @@ public class PlayerController : MonoBehaviour
         }
     }
     void SpriteFlip(float moveX) => sr.flipX = (moveX < 0f);
+
+    #region Fixed Updates
+    void FixedUpdate()
+    {
+        if (!isBoosting) return;
+
+        boostUp();
+    }
+    #endregion
+
+    #region Boost Ceiling Stop
+    void OnCollisionEnter2D(Collision2D col) => CheckBoostCeiling(col);
+    void OnCollisionStay2D(Collision2D col) => CheckBoostCeiling(col);
+
+    void CheckBoostCeiling(Collision2D col)
+    {
+        if (!isBoosting) return;
+        if ((groundLayer.value & (1 << col.gameObject.layer)) == 0) return;
+
+        for (int i = 0; i < col.contactCount; i++)
+        {
+            if (col.GetContact(i).normal.y < -0.5f)
+            {
+                boostTargetY = rb.position.y; // target = where we are now
+                return;
+            }
+        }
+    }
+    #endregion
+
     #region Attack Animation
 
     public void isAttackOn()
@@ -180,12 +229,9 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(Vector2.up * jumpForce * attackForceMultiplier, ForceMode2D.Impulse);
     }
-    public void hitPellet()
+    public void freezeTimePellet()
     {
-        isAttack = true;
-        rb.AddForce(Vector2.up * jumpForce * attackForceMultiplier, ForceMode2D.Impulse);
         FreezeTime(hitStopTime);
-        Debug.Log("hitPellet called");
     }
 
     //public void hitStop()
@@ -212,5 +258,50 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = previousScale;
         isFrozen = false;
     }
+    #region Boosting Up Attacks
+    
+    //Use StartBoost to call the boost function. This also replace the gravity off.
+    //The intention is to separate between signal and calculation, to prevent stacking calculation flying to the roof
+    public void startBoost()
+    {
+        // Restart: kill any existing motion
+        rb.linearVelocity = Vector2.zero;
+
+        // Lock the target only on a fresh boost, so repeat calls can't stack 4 into 8
+        if (!isBoosting)
+        {
+            boostTargetY = rb.position.y + boostHeight;
+            isBoosting = true;
+            anim.SetTrigger("sommersault");
+        }
+    }
+
+    //Triggered when Boost is true
+    void boostUp()
+    {
+        // Peak speed. At 2x the average, a linear taper to zero still covers
+        // boostHeight in about boostTime.
+        boostVelocity = 2f * boostHeight / boostTime;
+
+        // 1 at the start of the boost, 0 at the target
+        float remaining = Mathf.Clamp01((boostTargetY - rb.position.y) / boostHeight);
+
+        // Linear taper from full speed down to the end factor
+        float speedScale = Mathf.Lerp(boostEndSpeedFactor, 1f, remaining);
+
+        float dt = Time.fixedDeltaTime;
+        float newY = Mathf.MoveTowards(rb.position.y, boostTargetY, boostVelocity * speedScale * dt);
+
+        rb.linearVelocityY = (newY - rb.position.y) / dt;
+
+        if (Mathf.Approximately(newY, boostTargetY))
+        {
+            rb.linearVelocityY = 0f;
+            isBoosting = false;
+        }
+
+    }
+
+    #endregion
 
 }
