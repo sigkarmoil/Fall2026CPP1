@@ -43,7 +43,13 @@ public class PlayerController : MonoBehaviour
     #region Boost
     [SerializeField] private float boostHeight = 4f;
     [SerializeField] private float boostTime = 0.3f;
+
     [SerializeField] private LayerMask groundLayer;
+
+    #region power management
+    public int currentPower = 0;
+    [SerializeField] private int maxPower = 5;
+    #endregion
 
     private float boostVelocity;
     private float boostTargetY;
@@ -130,10 +136,11 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region twirlingAttack
-        if (upPressed && attackPressed)
+        if (upPressed && attackPressed && currentPower >=1)
         {
             anim.SetTrigger("twirlingAttack");
-        }   
+            currentPower -= 1;
+        }
         #endregion
 
         #region flip
