@@ -3481,6 +3481,7 @@ GameObject:
   - component: {fileID: 934302168}
   - component: {fileID: 934302167}
   - component: {fileID: 934302166}
+  - component: {fileID: 934302169}
   m_Layer: 6
   m_Name: left
   m_TagString: Untagged
@@ -5572,6 +5573,33 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &934302169
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934302164}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &939355715
 GameObject:
   m_ObjectHideFlags: 0
@@ -57513,6 +57541,7 @@ GameObject:
   - component: {fileID: 1804987627}
   - component: {fileID: 1804987628}
   - component: {fileID: 1804987629}
+  - component: {fileID: 1804987630}
   m_Layer: 3
   m_Name: player_janitor
   m_TagString: Player
@@ -57633,7 +57662,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804987619}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -57774,6 +57803,43 @@ MonoBehaviour:
   sr: {fileID: 1804987621}
   attackBox: {fileID: 624970851}
   xOffset: 0.211
+--- !u!70 &1804987630
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804987619}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.34, y: 0.77}
+  m_Direction: 0
 --- !u!1 &1819758009
 GameObject:
   m_ObjectHideFlags: 0

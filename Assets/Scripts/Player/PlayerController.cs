@@ -5,7 +5,7 @@ using UnityEngine;
 //Add require component to enforce having certain component
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent (typeof(Animator), (typeof(GroundCheck)))]
 
 public class PlayerController : MonoBehaviour
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
 
     private SpriteRenderer sr;
-    private BoxCollider2D bc;
+    private CapsuleCollider2D bc;
     private Animator anim;
     private GroundCheck gndChk;
 
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        bc = GetComponent<BoxCollider2D>();
+        bc = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
 
         gndChk = GetComponent<GroundCheck>();
