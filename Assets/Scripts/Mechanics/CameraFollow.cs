@@ -75,4 +75,12 @@ public class CameraFollow : MonoBehaviour
 
 
     }
+
+    public void snapTo(Vector2 position)
+    {
+        transform.position = new Vector3(
+            position.x,
+            Mathf.Clamp(position.y, minYPos, maxYPos),
+            transform.position.z);
+    }
 }

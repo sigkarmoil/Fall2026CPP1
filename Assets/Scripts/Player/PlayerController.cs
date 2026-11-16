@@ -23,6 +23,12 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private GroundCheck gndChk;
 
+    public Vector2 teleportLocation;
+
+    public bool canControl;
+
+    private float defaultGravityScale;
+
     [SerializeField] private Collider2D attackCollider;
 
     [SerializeField, Range(0.01f, 1f)] private float boostEndSpeedFactor = 0.1f; // speed at the very end, as a fraction of peak speed
@@ -74,6 +80,8 @@ public class PlayerController : MonoBehaviour
     public bool isAttack = false;
     #endregion
 
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -87,6 +95,8 @@ public class PlayerController : MonoBehaviour
 
 
         rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
+        teleportLocation = rb.position;          // default checkpoint = where the level starts
+        defaultGravityScale = rb.gravityScale;
     }
 
     // Update is called once per frame
@@ -104,11 +114,11 @@ public class PlayerController : MonoBehaviour
         #endregion
         #endregion
 
-        bool upPressed = Input.GetAxisRaw("Vertical") > 0f;
-        float moveX = Input.GetAxisRaw("Horizontal");
-        bool jumpPressed = Input.GetButtonDown("Jump");
-        bool attackPressed = Input.GetButtonDown("Fire1");
-        bool shootPressed = Input.GetButtonDown("Fire2");
+        bool upPressed = canControl && Input.GetAxisRaw("Vertical") > 0f;
+        float moveX = canControl ? Input.GetAxisRaw("Horizontal") : 0f;
+        bool jumpPressed = canControl && Input.GetButtonDown("Jump");
+        bool attackPressed = canControl && Input.GetButtonDown("Fire1");
+        bool shootPressed = canControl && Input.GetButtonDown("Fire2");
 
 
         #region movement
@@ -175,7 +185,11 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Boost Ceiling Stop
-    void OnCollisionEnter2D(Collision2D col) => CheckBoostCeiling(col);
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        CheckBoostCeiling(col);
+        recordHardPlaque(col);
+    }
     void OnCollisionStay2D(Collision2D col) => CheckBoostCeiling(col);
 
     void CheckBoostCeiling(Collision2D col)
@@ -303,5 +317,36 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
+
+
+    #region respawn functionality
+    void recordHardPlaque(Collision2D col)
+    {
+        if ((gndChk.hardMask.value & (1 << col.gameObject.layer)) == 0) return;
+
+        for (int i = 0; i < col.contactCount; i++)
+        {
+            if (col.GetContact(i).normal.y > 0.5f)   // landed on top, not a side or underside bump
+            {
+                teleportLocation = rb.position;
+                return;
+            }
+        }
+    }
+
+    public void cancelActions()
+    {
+        isBoosting = false;
+        isAttackOff();
+        rb.gravityScale = defaultGravityScale;   // undo gravityOff/gravityOn if interrupted mid-twirl
+        anim.ResetTrigger("regularAttack");
+        anim.ResetTrigger("twirlingAttack");
+        anim.ResetTrigger("shoot");
+        anim.ResetTrigger("sommersault");
+    }
+    #endregion
+
+    public void playHurt() => anim.SetTrigger("hurting");
 
 }

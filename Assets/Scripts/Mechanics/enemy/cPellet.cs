@@ -13,6 +13,7 @@ public class cPellet : MonoBehaviour
     public IObjectPool<cPellet> Pool { private get; set; }
 
     private PlayerController player;
+    private respawnPlayer respawner;
     private float age;
     private bool released;
 
@@ -23,6 +24,7 @@ public class cPellet : MonoBehaviour
     {
         attackBox = box;
         player = box != null ? box.GetComponentInParent<PlayerController>() : null;
+        respawner = box != null ? box.GetComponentInParent<respawnPlayer>() : null;
     }
 
     private void OnEnable()
@@ -46,18 +48,32 @@ public class cPellet : MonoBehaviour
         {
             player.freezeTimePellet();
             player.startBoost();
-            player.isAttack= true;
+            player.isAttack = true;
             Debug.Log("startBoost is happening");
             player.isAttackOff();
 
         }
-        else if (other.gameObject.layer == 3)   // ADD: Layer 3 = player
+        else
         {
-            Debug.Log("player Hit");
+            tryRespawn(other.gameObject);
         }
 
 
         Release();
+    }
+
+    // Pellet hit something that is not the attack box: respawn the player if it is the player.
+    private void tryRespawn(GameObject other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        if (respawner == null)
+        {
+            Debug.LogWarning("cPellet: respawner is not set.", this);
+            return;
+        }
+
+        respawner.respawn();
     }
 
     private void Release()

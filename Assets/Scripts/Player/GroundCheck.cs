@@ -48,5 +48,7 @@ public class GroundCheck : MonoBehaviour
     public void setGroundAfterJump()
     {
         isGrounded = false;
+
     }
+    public LayerMask hardMask => hardLayer;
 }
