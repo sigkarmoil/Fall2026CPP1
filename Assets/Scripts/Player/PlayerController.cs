@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 teleportLocation;
 
-    public bool canControl;
+    public bool canControl; // allow the input to be recognized. Turn off during cinematics
 
     private float defaultGravityScale;
 
@@ -35,7 +35,10 @@ public class PlayerController : MonoBehaviour
 
     public float attackForceMultiplier = 0.5f;
 
-    //public float freezeTimer = 0.2f;
+    public float freezeTimer = 0.2f;
+
+    [SerializeField] public int currentHealth = 3;
+    [SerializeField] private int maxHealth = 3;
 
     //private Vector2 CalculateGroundCheckPos()
     //{
