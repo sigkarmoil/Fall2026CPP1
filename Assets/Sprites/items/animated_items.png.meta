@@ -743,7 +743,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animated_items_14
+      name: bullet_1
       rect:
         serializedVersion: 2
         x: 9
@@ -765,7 +765,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animated_items_15
+      name: bullet_2
       rect:
         serializedVersion: 2
         x: 40
@@ -787,10 +787,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animated_items_16
+      name: bullet_3
       rect:
         serializedVersion: 2
-        x: 74
+        x: 75
         y: 391
         width: 12
         height: 23
@@ -809,7 +809,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animated_items_17
+      name: bullet_4
       rect:
         serializedVersion: 2
         x: 105
@@ -831,7 +831,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animated_items_18
+      name: bullet_5
       rect:
         serializedVersion: 2
         x: 137
@@ -853,7 +853,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animated_items_19
+      name: bullet_6
       rect:
         serializedVersion: 2
         x: 169
@@ -875,7 +875,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animated_items_20
+      name: bullet_7
       rect:
         serializedVersion: 2
         x: 201
@@ -897,7 +897,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animated_items_21
+      name: bullet_8
       rect:
         serializedVersion: 2
         x: 233
@@ -2926,15 +2926,7 @@ TextureImporter:
       animated_items_109: 7720284901354312356
       animated_items_110: 6561905811200820881
       animated_items_111: -2679040331488454239
-      animated_items_14: -2407031952559852479
-      animated_items_15: -93679185869150131
-      animated_items_16: 6897347160804016855
-      animated_items_17: 1152954976446117815
-      animated_items_18: 3303965442259441716
-      animated_items_19: 3315068748569970256
       animated_items_2: -8397897071074017054
-      animated_items_20: -9080795121086633094
-      animated_items_21: 5102122050525075743
       animated_items_22: 6877950436008146171
       animated_items_23: 5547250852297133210
       animated_items_24: 935642711742314210
@@ -3018,6 +3010,14 @@ TextureImporter:
       atk_5: -7007122243779239206
       atk_6: 41742706979564558
       atk_7: -5830588569649825829
+      bullet_1: -2407031952559852479
+      bullet_2: -93679185869150131
+      bullet_3: 6897347160804016855
+      bullet_4: 1152954976446117815
+      bullet_5: 3303965442259441716
+      bullet_6: 3315068748569970256
+      bullet_7: -9080795121086633094
+      bullet_8: 5102122050525075743
       health_1: -1036619366682988694
       health_2: 3576872818285866765
       health_3: 4115393502082750235

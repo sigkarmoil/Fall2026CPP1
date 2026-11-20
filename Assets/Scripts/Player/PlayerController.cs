@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public float jumpForce = 5f;
 
-    bool canShoot = false;
+    public int bulletCount = 0;
     public Rigidbody2D rb;
 
     private SpriteRenderer sr;
@@ -173,9 +173,10 @@ public class PlayerController : MonoBehaviour
         #endregion
 
 
-        if (shootPressed)
+        if (shootPressed && bulletCount >0)
         {
             anim.SetTrigger("shoot");
+            bulletCount -= 1;
         }
     }
     void SpriteFlip(float moveX) => sr.flipX = (moveX < 0f);
@@ -355,5 +356,8 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     public void playHurt() => anim.SetTrigger("hurting");
+
+    //deactivate ability to shoot
+    
 
 }
