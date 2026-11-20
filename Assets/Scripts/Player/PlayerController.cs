@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public float movesSpeed = 5f; // public allows it to be edited on UI
 
     public float jumpForce = 5f;
+
+    bool canShoot = false;
     public Rigidbody2D rb;
 
     private SpriteRenderer sr;
@@ -152,7 +154,7 @@ public class PlayerController : MonoBehaviour
         if (upPressed && attackPressed && currentPower >=1)
         {
             anim.SetTrigger("twirlingAttack");
-            currentPower -= 1;
+            currentPower = 0;
         }
         #endregion
 
@@ -298,6 +300,8 @@ public class PlayerController : MonoBehaviour
     {
         // Peak speed. At 2x the average, a linear taper to zero still covers
         // boostHeight in about boostTime.
+        currentPower = 1;
+
         boostVelocity = 2f * boostHeight / boostTime;
 
         // 1 at the start of the boost, 0 at the target

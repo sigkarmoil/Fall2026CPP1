@@ -45,9 +45,11 @@ public class FloatingCholesterol : MonoBehaviour
         if (player == null || other != playerAttackBox) return;
 
         PlayBounce();
+        player.freezeTimePellet();
+        player.isAttackOff();
         player.startBoost();
         player.isAttack = true;
-        player.isAttackOff();
+       
         Debug.Log("cholesterol boost", this);
     }
 
