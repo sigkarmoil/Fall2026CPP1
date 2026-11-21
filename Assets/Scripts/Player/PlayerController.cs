@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5f;
 
     public bool canShoot = false;
+    public bool canTwirl = false;
     public Rigidbody2D rb;
 
     private SpriteRenderer sr;
@@ -151,7 +152,7 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region twirlingAttack
-        if (upPressed && attackPressed && currentPower >=1)
+        if (canTwirl && upPressed && attackPressed && currentPower >=1)
         {
             anim.SetTrigger("twirlingAttack");
             currentPower = 0;
