@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public float jumpForce = 5f;
 
-    public int bulletCount = 0;
+    public bool canShoot = false;
     public Rigidbody2D rb;
 
     private SpriteRenderer sr;
@@ -173,10 +173,10 @@ public class PlayerController : MonoBehaviour
         #endregion
 
 
-        if (shootPressed && bulletCount >0)
+        if (shootPressed && canShoot == true)
         {
             anim.SetTrigger("shoot");
-            bulletCount -= 1;
+            canShoot = false;
         }
     }
     void SpriteFlip(float moveX) => sr.flipX = (moveX < 0f);
