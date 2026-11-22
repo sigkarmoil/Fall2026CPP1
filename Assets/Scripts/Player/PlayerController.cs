@@ -303,6 +303,10 @@ public class PlayerController : MonoBehaviour
             isBoosting = true;
             anim.SetTrigger("sommersault");
         }
+        else
+        {
+            boostTargetY += boostHeight;   // repeat hit extends the current boost
+        }
     }
 
     //Triggered when Boost is true
@@ -369,5 +373,6 @@ public class PlayerController : MonoBehaviour
 
     //deactivate ability to shoot
     
+
 
 }

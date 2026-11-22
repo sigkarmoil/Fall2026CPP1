@@ -57599,7 +57599,6 @@ GameObject:
   - component: {fileID: 1804987629}
   - component: {fileID: 1804987630}
   - component: {fileID: 1804987631}
-  - component: {fileID: 1804987632}
   m_Layer: 3
   m_Name: player_janitor
   m_TagString: Player
@@ -57785,12 +57784,13 @@ MonoBehaviour:
   currentHealth: 3
   maxHealth: 3
   boostHeight: 1
-  boostTime: 0.8
+  boostTime: 0.7
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   currentPower: 0
   maxPower: 5
+  boostTargetY: 0
   hitStopTime: 0.15
   isAttack: 0
 --- !u!95 &1804987626
@@ -57923,18 +57923,6 @@ MonoBehaviour:
   holdBlackTime: 0.3
   fadeToNormalTime: 0.5
   controlDelay: 0.2
---- !u!114 &1804987632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804987619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93869c33fd2aa044a915392c194e74c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::namedTimer
 --- !u!1 &1818218397
 GameObject:
   m_ObjectHideFlags: 0
