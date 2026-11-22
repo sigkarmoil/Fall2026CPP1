@@ -171,5 +171,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::darkPellet
   pelletForce: 0.3
-  speed: 6
-  lifetime: 5
+  speed: 1
+  lifetime: 8

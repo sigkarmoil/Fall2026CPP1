@@ -172,4 +172,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::cPellet
   pelletForce: 0.3
   speed: 0.9
-  lifetime: 5
+  lifetime: 8

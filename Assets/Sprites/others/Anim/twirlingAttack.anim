@@ -93,22 +93,22 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.06666667
+  - time: 0.1
     functionName: gravityOn
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.1
-    functionName: twirlForce
+  - time: 0.13333334
+    functionName: isAttackOn
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.1
-    functionName: isAttackOn
+  - time: 0.2
+    functionName: twirlForce
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
