@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     //    Bounds bounds = bc.bounds; // what is bounds in Unity?
     //    return new Vector2(bounds.center.x, bounds.min.y);
     //}
-
+    private respawnPlayer respawner;
 
     #endregion
 
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private float boostVelocity;
-    private float boostTargetY;
+    public float boostTargetY;
     private bool isBoosting;
     #endregion
 
@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        respawner = GetComponent<respawnPlayer>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         bc = GetComponent<CapsuleCollider2D>();
@@ -188,6 +189,9 @@ public class PlayerController : MonoBehaviour
         if (!isBoosting) return;
 
         boostUp();
+
+
+
     }
     #endregion
 
@@ -286,7 +290,11 @@ public class PlayerController : MonoBehaviour
     public void startBoost()
     {
         // Restart: kill any existing motion
+        Debug.Log("startBoost is happening");
         rb.linearVelocity = Vector2.zero;
+
+
+        if (respawner != null && respawner.isRespawning) return;   // ignore late animation events
 
         // Lock the target only on a fresh boost, so repeat calls can't stack 4 into 8
         if (!isBoosting)
@@ -348,6 +356,7 @@ public class PlayerController : MonoBehaviour
     {
         isBoosting = false;
         isAttackOff();
+        boostTargetY = rb.position.y;   // nothing stale left for MoveTowards to chase
         rb.gravityScale = defaultGravityScale;   // undo gravityOff/gravityOn if interrupted mid-twirl
         anim.ResetTrigger("regularAttack");
         anim.ResetTrigger("twirlingAttack");
