@@ -44,7 +44,7 @@ public class darkPellet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"pellet hit {other.name}", other);
+        //Debug.Log($"pellet hit {other.name}", other);
         if (other.CompareTag("Player"))
         {
             tryRespawn(other.gameObject);
