@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     #region Camera State
     public enum CameraState
     {
@@ -14,66 +13,73 @@ public class CameraFollow : MonoBehaviour
     #endregion
 
     #region public variables
-    // state of camera states
-    public CameraState currentState;
+    public CameraState currentState = CameraState.Follow;
 
-    // Set the leftmost Y border of a level
-    public float minYPos;
+    public float minYPos;   // lowest Y the camera may follow to
+    public float maxYPos;   // highest Y the camera may follow to
 
-    //Set the rightmost Y border of a level
-    public float maxYPos;
+    public Transform target;        // always the player
+    public float cameraSpeed = 5f;
 
-    // Create a variable called target that refers to its own TRANSFORM Inspector setting
-    public Transform target;
-
-    public float cameraSpeed = 5; //self explanatory
-
+    [Header("Bound")]
+    [SerializeField] Transform boundAnchor;   // empty object where the camera sits (keep it at scene root)
+    [SerializeField] float boundZoom = 3f;    // orthographic size while bound
+    [SerializeField] float zoomSpeed = 4f;
     #endregion
 
+    Camera cam;
+    float defaultZoom;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+        cam = GetComponent<Camera>();   // script must be on the Camera object
+        defaultZoom = cam.orthographicSize;
+    }
+
     void Start()
     {
-     if (target == null)
+        if (target == null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player == null)
             {
-                Debug.LogError("No Target assigned as player. Please include valid reference in the camera follow script");
+                Debug.LogError("CameraFollow: no Player found. Assign a target.");
                 return;
             }
             target = player.transform;
-        }   
+        }
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
-        if (target == null)
+        switch (currentState)
         {
-            return;
+            case CameraState.Follow: UpdateFollow(); break;
+            case CameraState.Bound: UpdateBound(); break;
         }
+    }
 
-        //we need to capture current position in order to modify the x position for this update
-        Vector3 currentPos = transform.position; // returns vector in general
+    void UpdateFollow()
+    {
+        if (target == null) return;
 
+        Vector3 dest = transform.position;
+        dest.x = target.position.x;
+        dest.y = Mathf.Clamp(target.position.y, minYPos, maxYPos);
 
-        // what is the difference between transform.position and currentPos?
-        // currentPOS.x just COPIES it because it is a struct. it does not immediately change the value of camera
-        //modify to a clamp of x min and max values.
-        currentPos.y = Mathf.Clamp(target.position.y, minYPos, maxYPos); // take the value of x, but limit it between minXPos and maxXpos
-        currentPos.x = target.position.x;
+        transform.position = Vector3.MoveTowards(transform.position, dest, cameraSpeed * Time.deltaTime);
+        cam.orthographicSize = Mathf.MoveTowards(cam.orthographicSize, defaultZoom, zoomSpeed * Time.deltaTime);
+    }
 
+    void UpdateBound()
+    {
+        if (boundAnchor == null) return;
 
-        //currentPos.y = Mathf.Clamp
-        // by default Unity does not allow transform.position.x
-        //However it accepts an entire vector of it.
+        Vector3 dest = boundAnchor.position;
+        dest.z = transform.position.z;   // keep the camera's own Z
 
-        transform.position = Vector3.MoveTowards(transform.position, currentPos, cameraSpeed * Time.deltaTime);
-
-
-
-
+        transform.position = Vector3.MoveTowards(transform.position, dest, cameraSpeed * Time.deltaTime);
+        cam.orthographicSize = Mathf.MoveTowards(cam.orthographicSize, boundZoom, zoomSpeed * Time.deltaTime);
     }
 
     public void snapTo(Vector2 position)
@@ -82,5 +88,17 @@ public class CameraFollow : MonoBehaviour
             position.x,
             Mathf.Clamp(position.y, minYPos, maxYPos),
             transform.position.z);
+    }
+
+    // Call from a trigger zone or another script
+    public void SetBound(Transform anchor)
+    {
+        boundAnchor = anchor;
+        currentState = CameraState.Bound;
+    }
+
+    public void SetFollow()
+    {
+        currentState = CameraState.Follow;
     }
 }

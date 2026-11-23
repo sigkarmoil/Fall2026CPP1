@@ -26,6 +26,8 @@ public class respawnPlayer : MonoBehaviour
     #endregion
 
     private int respawnCount;
+    // Read-only flag. Derived from respawnCount so there is no second variable to keep in sync.
+    public bool isRespawning => respawnCount > 0;
     private PlayerController player;
     private Rigidbody2D rb;
 
@@ -58,6 +60,7 @@ public class respawnPlayer : MonoBehaviour
         // Lock the player: no input, no leftover boost/attack, no falling during the fade.
         player.playHurt();
         player.canControl = false;
+       
         player.cancelActions();
         RigidbodyType2D previousBodyType = rb.bodyType;
         rb.linearVelocity = Vector2.zero;
@@ -76,7 +79,8 @@ public class respawnPlayer : MonoBehaviour
 
         StartCoroutine(fadeToNormal());
         yield return new WaitForSecondsRealtime(controlDelay);
-
+        rb.position = player.teleportLocation;
+        player.boostTargetY = rb.position.y;   // nothing stale left for MoveTowards to chase
         rb.bodyType = previousBodyType;
         respawnCount = 0;           // right before control returns
         player.canControl = true;
