@@ -16,6 +16,7 @@ public class darkPellet : MonoBehaviour
     private respawnPlayer respawner;
     private float age;
     private bool released;
+    //[SerializeField]public int pelletDamage = 50;
 
 
 
@@ -47,6 +48,7 @@ public class darkPellet : MonoBehaviour
         //Debug.Log($"pellet hit {other.name}", other);
         if (other.CompareTag("Player"))
         {
+            //player.currentHealth -= pelletDamage;
             tryRespawn(other.gameObject);
         }
 
