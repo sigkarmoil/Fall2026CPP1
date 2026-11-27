@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 //Add require component to enforce having certain component
 [RequireComponent(typeof(Rigidbody2D))]
@@ -156,6 +157,7 @@ public class PlayerController : MonoBehaviour
         #region twirlingAttack
         if (canTwirl && upPressed && attackPressed && currentPower >=1)
         {
+            isBoosting = false; //To do
             anim.SetTrigger("twirlingAttack");
             currentPower = 0;
         }
@@ -285,10 +287,10 @@ public class PlayerController : MonoBehaviour
         isFrozen = false;
     }
     #region Boosting Up Attacks
-    
+
     //Use StartBoost to call the boost function. This also replace the gravity off.
     //The intention is to separate between signal and calculation, to prevent stacking calculation flying to the roof
-    public void startBoost()
+    public void startBoost() //-- version 1
     {
         // Restart: kill any existing motion
         Debug.Log("startBoost is happening");
@@ -300,15 +302,27 @@ public class PlayerController : MonoBehaviour
         // Lock the target only on a fresh boost, so repeat calls can't stack 4 into 8
         if (!isBoosting)
         {
-            boostTargetY = rb.position.y + boostHeight;
             isBoosting = true;
+            boostTargetY = rb.position.y + boostHeight;
             anim.SetTrigger("sommersault");
         }
         else
         {
-            boostTargetY += boostHeight;   // repeat hit extends the current boost
+            boostTargetY = rb.position.y + boostHeight;   //To DO
         }
     }
+
+    //public void startBoost() //-- Version 2
+    //{
+    //    if (respawner != null && respawner.isRespawning) return;   // ignore late animation events
+    //    if (isBoosting) return;                                    // already boosting: same height every time
+
+    //    rb.linearVelocity = Vector2.zero;                          // kill existing motion on a fresh boost only
+
+    //    boostTargetY = rb.position.y + boostHeight;
+    //    isBoosting = true;
+    //    anim.SetTrigger("sommersault");
+    //}
 
     //Triggered when Boost is true
     void boostUp()
