@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canShoot = false;
     public bool canTwirl = false;
+    [SerializeField] int damageTaken = 5;
     public Rigidbody2D rb;
 
     private SpriteRenderer sr;
@@ -40,8 +41,8 @@ public class PlayerController : MonoBehaviour
 
     public float freezeTimer = 0.2f;
 
-    [SerializeField] public int currentHealth = 3;
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] public int currentHealth = 100;
+    [SerializeField] private int maxHealth = 100;
 
     //private Vector2 CalculateGroundCheckPos()
     //{

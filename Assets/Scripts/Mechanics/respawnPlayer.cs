@@ -28,8 +28,12 @@ public class respawnPlayer : MonoBehaviour
     private int respawnCount;
     // Read-only flag. Derived from respawnCount so there is no second variable to keep in sync.
     public bool isRespawning => respawnCount > 0;
+
+    [SerializeField] int damagePerHit = 10;
+
     private PlayerController player;
     private Rigidbody2D rb;
+
 
     void Awake()
     {
@@ -52,7 +56,18 @@ public class respawnPlayer : MonoBehaviour
         ++respawnCount;
         if (respawnCount != 1) return;
 
-        StartCoroutine(respawnRoutine());
+        // Exactly one damage tick per respawn-causing contact.
+        player.currentHealth = Mathf.Max(0, player.currentHealth - damagePerHit);
+
+        if (player.currentHealth > 0)
+        {
+            StartCoroutine(respawnRoutine());
+            Debug.Log($"Player Health: {player.currentHealth}");
+        }
+        else
+        {
+            GameManager.Instance.LoadGameOver();
+        }
     }
 
     private IEnumerator respawnRoutine()
