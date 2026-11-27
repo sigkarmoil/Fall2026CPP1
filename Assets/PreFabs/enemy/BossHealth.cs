@@ -6,6 +6,7 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private LayerMask playerProjectileLayer;
     [SerializeField] private respawnPlayer respawner; // drag the player here
     [SerializeField] private GameObject objectToDestroy; // drag plaque4 here
+    [SerializeField] private CameraFollow camf;
 
     private int currentHealth;
     private bool isDefeated;
@@ -46,5 +47,6 @@ public class BossHealth : MonoBehaviour
         isDefeated = true;
         Debug.Log("you win!");
         Destroy(objectToDestroy != null ? objectToDestroy : gameObject);
+        camf.SetFollow();
     }
 }

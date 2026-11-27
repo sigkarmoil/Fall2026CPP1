@@ -5110,7 +5110,7 @@ Canvas:
   m_GameObject: {fileID: 690344515}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -5122,7 +5122,7 @@ Canvas:
   m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1829911229
   m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &690344517
@@ -5134,7 +5134,7 @@ RectTransform:
   m_GameObject: {fileID: 690344515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 992826337}
@@ -5142,9 +5142,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 452.5, y: 201.5}
+  m_SizeDelta: {x: 905, y: 403}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &702629097
 GameObject:
   m_ObjectHideFlags: 0
@@ -63946,7 +63946,7 @@ Transform:
   m_GameObject: {fileID: 1804987619}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 436.57404, y: 200.37901, z: 0}
+  m_LocalPosition: {x: 436.50403, y: 200.32901, z: 0}
   m_LocalScale: {x: 0.31548297, y: 0.31548297, z: 0.31548297}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -65110,7 +65110,7 @@ Transform:
   m_GameObject: {fileID: 1911847961}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 436.59, y: 200.57, z: -0.8202557}
+  m_LocalPosition: {x: 436.52, y: 200.52, z: -0.8202557}
   m_LocalScale: {x: 1.5269376, y: 5.959473, z: 1.5306}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -65776,6 +65776,7 @@ MonoBehaviour:
     m_Bits: 32768
   respawner: {fileID: 1804987631}
   objectToDestroy: {fileID: 978859400}
+  camf: {fileID: 1911847966}
 --- !u!1001 &2093222618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66256,12 +66257,12 @@ SceneRoots:
   m_Roots:
   - {fileID: 619394802}
   - {fileID: 1911847965}
+  - {fileID: 690344517}
   - {fileID: 1804987622}
   - {fileID: 236815493}
   - {fileID: 1176768369}
   - {fileID: 1616945911}
   - {fileID: 1793260751}
-  - {fileID: 690344517}
   - {fileID: 1845946284}
   - {fileID: 1818218398}
   - {fileID: 1108630612}
